@@ -15,7 +15,7 @@ export default function Hero() {
 					backgroundSize: useTransform(
 						scrollYProgress,
 						[0, 1],
-						["100%", "1000%"],
+						["100%", "250%"],
 					),
 				}}
 			>
