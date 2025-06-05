@@ -5,10 +5,10 @@ import { motion, useScroll, useTransform, useInView, useMotionValueEvent } from 
 
 export default function About() {
 	const{ scrollYProgress: scrollPage } = useScroll();
-
+	// Scroll Debug Area
 	const inViewRef = useRef<HTMLDivElement>(null);
 	const isInView = useInView(inViewRef, {
-		amount: "all",
+		amount: "some",
 	});
 	const { scrollYProgress } = useScroll({
 		target: inViewRef,
@@ -19,18 +19,19 @@ export default function About() {
 			console.log(latest);
 		}
 	);
-
 	useEffect(() => {
 		console.log(`The section ${isInView ? "is" : "is not"} in view`);
 	}, [isInView]);
+	// End of Scroll Debug Area
 	
 	return (
 		<section
-			className="flex min-h-screen w-full items-center justify-center border-y-2 border-muted-foreground"
+			ref={inViewRef}
+			className="flex min-h-screen w-full items-center justify-center border-y-2 border-muted-foreground overflow-hidden"
 			id="About"
 		>
 			<motion.div
-				className="night relative flex h-screen w-full flex-col border-4 justify-center"
+				className="night relative flex h-screen w-full flex-col justify-center items-center"
 				style={{
 					backgroundSize: useTransform(
 						scrollPage,
@@ -40,37 +41,45 @@ export default function About() {
 				}}
 			>
 				<motion.div 
-					ref={inViewRef}
-					className="relative w-full flex flex-col items-center border-4 justify-center"
-					style={{
-						perspective: "500px",
-					}}	
-				>
-					<motion.div
-						className="relative w-full flex flex-col items-center justify-center"
-						style={{
-							scale: useTransform(scrollYProgress, [0, 1], [0.5, 1.5]),
-						}}
-					>
-						<h1 className="text-center text-4xl font-black md:text-5xl">
-							About Section
-						</h1>
-						<h3 className="px-4 text-center text-sm font-bold md:px-0 md:text-2xl">
-							Introduce the hackathon and its purpose! Make it sound enticing.
-							The sky shimmered with colors unseen by ordinary eyes, as if the
-							universe itself had decided to throw a grand celebration. Beneath
-							the swirling lights, a small cat wearing a tiny backpack wandered
-							through fields of luminous mushrooms, humming a tune only the stars
-							could understand. Meanwhile, clocks melted on the hills like warm
-							butter, and the rivers flowed upward toward distant moons. Somewhere
-							nearby, a group of turtles debated the meaning of jazz music while
-							sipping tea from acorn cups. Everything felt possible, and the air
-							buzzed with invisible laughter, weaving dreams into the fabric of an
-							endless twilight.
-						</h3>
-					</motion.div>
+					className="absolute flex justify-center top-[75%] scale-x-[250%] w-[100%] aspect-square bg-gray-500 rounded-full"
+				>	
+					<Image
+						className="absolute border-4 w-[50px] h-[100px]"
+						src={"/img/sign.png"}
+						alt="Sign"
+						width={500}
+						height={500}
+						unoptimized={true}
+					/>
 				</motion.div>
 			</motion.div>
 		</section>
 	);
 }
+
+	{/* <motion.div
+						className="relative w-2/3 h-1/3 flex flex-col items-center justify-center border-4"
+						style={{
+							scale: useTransform(scrollYProgress, [0, 1], [0.5, 1.5]),
+						}}
+					>
+						<h1 className="text-center text-4xl font-black">
+							About Us
+						</h1>
+						<h3 className="px-1 text-center text-sm font-bold">
+						RowdyHacks is UTSA's annual hackathon, 
+						proudly hosted by the Association for Computing Machinery (ACM) at UTSA. 
+						It's a weekend-long event where students, tech enthusiasts, 
+						and creatives from all backgrounds come together to collaborate, 
+						innovate, and build real-world projects — all in just 24 hours.
+						</h3>
+						<h1 className="mt-8 text-center text-4xl font-black">
+							Who Can Attend?
+						</h1>
+						<h3 className="p-1 text-center text-sm font-bold">
+						Everyone is welcome. RowdyHacks is open to all students and beginners — no matter
+						your major, skill level, or background. 
+						Whether you're a first-time hacker, an experienced developer, 
+						or just curious about tech, there's a place for you here.
+						</h3>
+					</motion.div> */}
