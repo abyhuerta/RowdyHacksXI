@@ -27,11 +27,11 @@ export default function About() {
 	return (
 		<section
 			ref={inViewRef}
-			className="flex min-h-screen w-full items-center justify-center border-y-2 border-muted-foreground overflow-hidden"
+			className="flex min-h-screen w-full border-y-2 border-muted-foreground overflow-hidden"
 			id="About"
 		>
 			<motion.div
-				className="night relative flex h-screen w-full flex-col justify-center items-center"
+				className="night relative flex h-screen w-full flex-col"
 				style={{
 					backgroundSize: useTransform(
 						scrollPage,
@@ -41,16 +41,42 @@ export default function About() {
 				}}
 			>
 				<motion.div 
-					className="absolute flex justify-center top-[75%] scale-x-[250%] w-[100%] aspect-square bg-gray-500 rounded-full"
+					className="absolute flex top-[75%] scale-x-[250%] w-[100%] aspect-square bg-gray-500 rounded-full"
 				>	
-					<Image
-						className="absolute border-4 w-[50px] h-[100px]"
-						src={"/img/sign.png"}
-						alt="Sign"
-						width={500}
-						height={500}
-						unoptimized={true}
-					/>
+				</motion.div>
+				<motion.div
+					className="relative flex top-[75%] w-full h-[25%]"
+				>
+					<div className="relative flex justify-center w-[25%]">
+						<Image
+							className="relative w-[40%] h-[55%]"
+							src={"/img/saloon.png"}
+							alt="Sign"
+							width={100}
+							height={650}
+							unoptimized={true}
+						/>
+					</div>
+					<div className="relative flex justify-center w-[50%]">
+						<Image
+							className="relative w-[40%] h-[55%]"
+							src={"/img/sign.png"}
+							alt="Sign"
+							width={100}
+							height={650}
+							unoptimized={true}
+						/>
+					</div>
+					<div className="relative flex justify-center w-[25%]">
+						<Image
+							className="relative w-[40%] h-[55%]"
+							alt="Sign"
+							src={"/img/cactus1.png"}
+							width={100}
+							height={650}
+							unoptimized={true}
+						/>
+					</div>
 				</motion.div>
 			</motion.div>
 		</section>
