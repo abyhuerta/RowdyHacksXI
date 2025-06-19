@@ -49,9 +49,9 @@ export default function About() {
 				>
 					<div className="relative flex justify-center w-[25%]">
 						<Image
-							className="relative w-[40%] h-[55%]"
+							className="absolute left-[50%] bottom-[70%] w-[60%] h-[100%] rotate-[6.2rad]"
 							src={"/img/saloon.png"}
-							alt="Sign"
+							alt="Saloon"
 							width={100}
 							height={650}
 							unoptimized={true}
@@ -59,18 +59,26 @@ export default function About() {
 					</div>
 					<div className="relative flex justify-center w-[50%]">
 						<Image
-							className="relative w-[40%] h-[55%]"
-							src={"/img/sign.png"}
+							className="absolute bottom-[65%] w-[725px] h-[750px]"
+							src={"/img/ufo.svg"}
 							alt="Sign"
-							width={100}
-							height={650}
+							width={431}
+							height={4}
 							unoptimized={true}
 						/>
 					</div>
 					<div className="relative flex justify-center w-[25%]">
 						<Image
-							className="relative w-[40%] h-[55%]"
-							alt="Sign"
+							className="relative bottom-[20%] right-[50%] w-[20%] h-[55%] rotate-[6.2rad]"
+							alt="Cactus1"
+							src={"/img/cactus1.png"}
+							width={100}
+							height={650}
+							unoptimized={true}
+						/>
+						<Image
+							className="relative bottom-[25%] right-[50%] w-[20%] h-[55%] rotate-[6.4rad]"
+							alt="Cactus2"
 							src={"/img/cactus1.png"}
 							width={100}
 							height={650}
