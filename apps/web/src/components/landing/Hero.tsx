@@ -7,24 +7,15 @@ import { motion, useScroll, useTransform } from "framer-motion";
 export default function Hero() {
 	const { scrollYProgress } = useScroll();
 	return (
-		<section className="grid w-full grid-cols-1 overflow-hidden">
-			<motion.div
-				className="relative flex h-screen w-full flex-col justify-end"
-				style={{
-					backgroundSize: useTransform(
-						scrollYProgress,
-						[0, 1],
-						["100%", "1000%"],
-					),
-				}}
-			>
-				<div className="relative z-20 w-screen">
+		<section className="h-screen w-screen overflow-hidden">
+			<div className="relative h-screen w-full overflow-hidden">
+				<div className="absolute bottom-0 z-20 w-screen overflow-y-hidden">
 					<motion.div
 						style={{
 							translateY: useTransform(
 								scrollYProgress,
 								[0, 1],
-								[0, 20000],
+								[0, 5000],
 							),
 						}}
 					>
@@ -60,7 +51,7 @@ export default function Hero() {
 						translateX: useTransform(
 							scrollYProgress,
 							[0, 1],
-							[0, 1000],
+							[0, 250],
 						),
 						rotate: useTransform(scrollYProgress, [0, 1], [0, 360]),
 					}}
@@ -80,12 +71,12 @@ export default function Hero() {
 						translateX: useTransform(
 							scrollYProgress,
 							[0, 1],
-							["-50%", "-1000%"],
+							["-50%", "-5000%"],
 						),
 						translateY: useTransform(
 							scrollYProgress,
 							[0, 1],
-							["-60%", "-100%"],
+							["-60%", "-80%"],
 						),
 						scale: useTransform(scrollYProgress, [0, 1], [1, 10]),
 						rotate: useTransform(
@@ -95,16 +86,26 @@ export default function Hero() {
 						),
 					}}
 				>
-					<Image
-						src={"/img/hero-title.svg"}
-						alt={"Rh Xi Hero Title"}
-						className="mx-auto"
-						width={1000}
-						height={1000}
-						unoptimized={true}
-					/>
+					<div className="relative mx-auto">
+						<Image
+							src={"/img/hero-title.svg"}
+							alt={"Rowdy Hacks Coming Fall '25"}
+							className="w-full"
+							width={1000}
+							height={1000}
+							unoptimized={true}
+						/>
+						<Image
+							src={"/img/cactus.svg"}
+							className="title-cactus absolute bottom-0 left-0 z-30 w-fit -translate-x-1/2"
+							alt={"Cactus"}
+							width={1000}
+							height={1000}
+							unoptimized={true}
+						/>
+					</div>
 				</motion.div>
-			</motion.div>
+			</div>
 		</section>
 	);
 }
